@@ -29,7 +29,7 @@ def start_recording():
     if not recording:
         recording = True
         paused = False
-        frames = []
+        
         date_folder = create_recording_folder() # or not
         current_time = datetime.datetime.now().strftime("%HH-%MM-%SS")
         filename = f"{os.path.join(date_folder, current_time)}.avi"
@@ -60,7 +60,7 @@ def stop_and_save_recording():
         print("Recording saved and stopped")
 
 def capture_screen():
-    global frames
+    global frames, out, paused
     while True:
         if recording and not paused:
             img = pyautogui.screenshot()
